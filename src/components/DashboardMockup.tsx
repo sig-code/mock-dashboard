@@ -603,7 +603,7 @@ const DashboardMockup = () => {
         {/* 左側: 一週間の受電状況 */}
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-lg font-semibold mb-4">
-            直近5日間の1時間ごとの受電状況（通話状態別）
+            直近5日間の1時間ごとの受電状況
           </h2>
           <div className="border-t border-gray-200 pt-3">
             <div className="h-80">
@@ -673,11 +673,11 @@ const DashboardMockup = () => {
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-lg font-semibold mb-4">今日の対応状況</h2>
           <div className="border-t border-gray-200 pt-3">
-            <div className="h-64">
+            <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                   data={hourlyData}
-                  margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                  margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
                 >
                   <defs>
                     <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
