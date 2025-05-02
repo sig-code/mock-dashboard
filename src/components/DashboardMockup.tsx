@@ -2,7 +2,7 @@ import React from 'react';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, LineChart, Line } from 'recharts';
 
 const DashboardMockup = () => {
-  // 5日間の時間ごとのデータ（簡略化）
+  // 5日間の時間ごとのデータ（簡略化）- 9:00-19:00に統一
   const dailyCallData = [
     { hour: '9:00', '5/28': 17, '5/29': 17, '5/30': 17, '5/31': 21, '6/1': 18 },
     { hour: '10:00', '5/28': 21, '5/29': 22, '5/30': 19, '5/31': 22, '6/1': 24 },
@@ -13,10 +13,11 @@ const DashboardMockup = () => {
     { hour: '15:00', '5/28': 17, '5/29': 18, '5/30': 19, '5/31': 20, '6/1': 18 },
     { hour: '16:00', '5/28': 22, '5/29': 26, '5/30': 23, '5/31': 24, '6/1': 26 },
     { hour: '17:00', '5/28': 15, '5/29': 20, '5/30': 18, '5/31': 22, '6/1': 19 },
-    { hour: '18:00', '5/28': 11, '5/29': 15, '5/30': 12, '5/31': 15, '6/1': 15 }
+    { hour: '18:00', '5/28': 11, '5/29': 15, '5/30': 12, '5/31': 15, '6/1': 15 },
+    { hour: '19:00', '5/28': 8, '5/29': 10, '5/30': 9, '5/31': 11, '6/1': 10 }
   ];
 
-  // 日内データ
+  // 日内データ - 9:00-19:00に統一
   const hourlyData = [
     { time: "9:00", count: 23 },
     { time: "9:30", count: 28 },
@@ -37,7 +38,8 @@ const DashboardMockup = () => {
     { time: "17:00", count: 24 },
     { time: "17:30", count: 18 },
     { time: "18:00", count: 13 },
-    { time: "18:30", count: 10 }
+    { time: "18:30", count: 10 },
+    { time: "19:00", count: 7 }
   ];
 
   // ツールチップの型定義
@@ -64,41 +66,6 @@ const DashboardMockup = () => {
               {entry.name}: {entry.value}
             </p>
           ))}
-        </div>
-      );
-    }
-
-    return null;
-  };
-
-  // 週間データ用カスタムツールチップ
-  const WeeklyCustomTooltip: React.FC<TooltipProps> = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      // ペイロードから日付を取得
-      const dayValue = payload[0]?.payload?.day as string || '';
-
-      return (
-        <div className="bg-gray-800 text-white p-2 rounded text-xs">
-          <p className="font-bold mb-1">{dayValue} {label}</p>
-          <div className="flex items-center mb-1">
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
-            <span>9秒以内に通話確立: {payload[0].value}</span>
-          </div>
-          <div className="flex items-center mb-1">
-            <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1"></div>
-            <span>9秒以上待って通話確立: {payload[1].value}</span>
-          </div>
-          <div className="flex items-center mb-1">
-            <div className="w-2 h-2 bg-purple-500 rounded-full mr-1"></div>
-            <span>9秒以上待って放棄: {payload[2].value}</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-2 h-2 bg-red-500 rounded-full mr-1"></div>
-            <span>9秒以内に放棄: {payload[3].value}</span>
-          </div>
-          <div className="mt-1 pt-1 border-t border-gray-600">
-            <span className="font-semibold">合計: {payload[0].value + payload[1].value + payload[2].value + payload[3].value}</span>
-          </div>
         </div>
       );
     }
