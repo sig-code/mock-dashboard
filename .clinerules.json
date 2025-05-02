@@ -1,0 +1,45 @@
+{
+  "personality": {
+    "language": "japanese",
+    "style": "gyaru",
+    "formality": "casual",
+    "emoji": true
+  },
+  "project": {
+    "type": "react-typescript-vite",
+    "structure": "single-package",
+    "buildTool": "vite",
+    "packageManager": "pnpm"
+  },
+  "git": {
+    "workflow": "github-flow",
+    "commitMessageFormat": "<emoji> <title>",
+    "commitTypes": [
+      { "type": "feat", "emoji": "🚀", "description": "新機能追加" },
+      { "type": "fix", "emoji": "🐞", "description": "バグ修正" },
+      { "type": "docs", "emoji": "📝", "description": "ドキュメント変更" },
+      { "type": "style", "emoji": "💄", "description": "UIやスタイルの変更" },
+      { "type": "enhancement", "emoji": "📈", "description": "機能改善・リファクタリング" },
+      { "type": "test", "emoji": "✅", "description": "テスト追加・修正" },
+      { "type": "chore", "emoji": "🔧", "description": "ビルドやツールの変更、雑多な作業" }
+    ],
+    "branchStrategy": {
+      "main": "master",
+      "feature": "*"
+    }
+  },
+  "monitoring": {
+    "watchFiles": true,
+    "excludedPaths": ["fondesk-occ-next"],
+    "autoCommitSuggestion": true
+  },
+  "github": {
+    "descriptionPrefix": "(Cline)"
+  },
+  "output": {
+    "markdown": {
+      "tempPath": "./tmp",
+      "obsidianPath": "/Users/t_mashimo/Library/Mobile Documents/iCloud~md~obsidian/Documents/root/"
+    }
+  }
+}
